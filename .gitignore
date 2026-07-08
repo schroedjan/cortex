@@ -1,0 +1,20 @@
+# Mimir — version the framework (instructions, skills, templates, structure),
+# ignore actual content (personal/company knowledge the agents write).
+
+# --- Memory & context content (incl. their INDEX.md manifests) ---
+agents/*/memory/*.md
+agents/*/context/*.md
+shared-memory/*.md
+
+# --- Ingested source files: immutable archive, may be large/sensitive ---
+original-files/*
+
+# Keep the directory structure so a fresh clone rebuilds the tree.
+!.gitkeep
+
+# --- OS / editor cruft ---
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
