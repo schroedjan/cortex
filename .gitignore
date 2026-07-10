@@ -1,4 +1,4 @@
-# Mimir — version the framework (instructions, skills, templates, structure),
+# Cortex
 # ignore actual content (personal/company knowledge the agents write).
 
 # --- Memory & context content (incl. their INDEX.md manifests) ---
@@ -8,6 +8,8 @@ shared-memory/*.md
 
 # --- Ingested source files: immutable archive, may be large/sensitive ---
 original-files/*
+# Root live index only — the seed lives at templates/original-files-index.md.
+/original-files-index.md
 
 # Keep the directory structure so a fresh clone rebuilds the tree.
 !.gitkeep

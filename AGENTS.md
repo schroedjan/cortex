@@ -44,7 +44,11 @@ read those in full, follow their `[[backlinks]]`.
 
 **Original files — immutable.** `original-files/` holds ingested sources; never
 edit, delete, or read on session start. Log each ingestion in
-`original-files-index.md`.
+`original-files-index.md`. That root index is **not** tracked in git (it holds
+private records); the repo ships only the seed `templates/original-files-index.md`.
+If the root `original-files-index.md` is missing (fresh clone), create it by
+copying the template before logging: `cp templates/original-files-index.md
+original-files-index.md`.
 
 ## Index files
 
