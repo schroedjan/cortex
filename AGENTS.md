@@ -61,11 +61,34 @@ load memory with an `always-load` tag.
 
 ## File format
 
-Memory/context files: markdown + front-matter (`title`, `created`, `updated`,
-`tags`, optional `sources`). Timestamps are ISO `YYYY-MM-DD HH:mm` using the
-current environment date/time. File names are kebab-case slugs. Start from
-`templates/memory.md` or `templates/context.md`. Link related files with
-`[[slug]]`, resolved by matching the slug in the memory/context directories.
+Memory/context files: markdown + front-matter. Fields:
+
+- `title` — short human title. **Required.**
+- `type` — the concept kind, a short descriptive string you choose (e.g.
+  `User Profile`, `Company`, `Instrument`, `Spec`, `Concept`, `Reference`,
+  `Team`). **Required.**
+- `created`, `updated` — ISO `YYYY-MM-DD HH:mm`, current environment date/time.
+- `status` — `draft` | `stable` | `deprecated`. Absent = `stable`.
+- `tags` — list.
+- `sources` — optional; original-files paths or URLs this was derived from.
+- `verified` — optional; `{ by: <actor>, at: <YYYY-MM-DD> }` recording who
+  confirmed the content and when. Actor convention: `human:<id>` for a person,
+  `<agent>/<model>` for an agent, `process:<id>` for automation. No `verified`
+  = unverified; verified by non-human only = machine-confirmed; verified by a
+  `human:<id>` = human-reviewed. Prefer human-reviewed for facts that drive
+  decisions.
+- `stale_after` — optional ISO date; the entry is stale when the current date
+  ≥ this value. Set it on volatile facts so stale memory gets re-verified
+  rather than trusted blindly.
+
+File names are kebab-case slugs. Start from `templates/memory.md` or
+`templates/context.md`. Link related files with `[[slug]]`, resolved by matching
+the slug in the memory/context directories.
+
+`type`/`status`/`verified`/`stale_after` are **OKF-inspired** (Google's Open
+Knowledge Format) for portability + self-auditing memory. Cortex is deliberately
+*not* full OKF-conformant — it keeps `[[slug]]` links and `INDEX.md`. Rationale
+and the gap to conformance: context [[okf-open-knowledge-format]].
 
 ## Skills
 

@@ -1,9 +1,13 @@
 ---
 title: <descriptive title>
+type: <concept kind — e.g. Concept | Reference | Instrument | Spec | Overview | Team>
 created: <YYYY-MM-DD HH:mm>
 updated: <YYYY-MM-DD HH:mm>
+status: stable   # draft | stable | deprecated (absent = stable)
 tags: [<tag-a>, <tag-b>]
-sources: []   # optional: original-files paths this was derived from
+sources: []      # optional: original-files paths or URLs this was derived from
+# verified: { by: human:jan, at: <YYYY-MM-DD> }   # optional — who confirmed this + when
+# stale_after: <YYYY-MM-DD>                        # optional — re-verify on/after this date
 ---
 
 <!--
