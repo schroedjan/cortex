@@ -22,5 +22,31 @@
         ]
       }
     ]
+  },
+  "sandbox": {
+    "filesystem": {
+      "denyRead": ["/Users", "/home"],
+      "allowRead": [
+        ".",
+        "~/.gitconfig",
+        "~/.config/git",
+        "~/.claude/projects",
+        "~/.local/share/chezmoi"
+      ],
+      "denyWrite": [
+        ".env",
+        ".env.*",
+        "*.pem",
+        "*.key",
+        "**/*.pem",
+        "**/*.key",
+        "**/.env"
+      ]
+    }
+  },
+  "permissions": {
+    "deny": [
+      "Edit(original-files/**)"
+    ]
   }
 }
